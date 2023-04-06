@@ -1,8 +1,22 @@
-import React from 'react'
+import { Stack, Switch } from '@chakra-ui/react';
+import React, { useState } from 'react'
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
-const ThemeChange = () => {
+interface Props {
+    onClick: () => void;
+}
+
+const ThemeChange = ({ onClick }: Props) => {
+    const [darkTheme, setDarkTheme] = useState(false)
+    const toggle = () => {
+        setDarkTheme(!darkTheme);
+        onClick();
+    }
+
     return (
-        <div>ThemeChange</div>
+        <Stack direction='row'>
+            <Switch colorScheme='teal' size='lg' />
+        </Stack>
     )
 }
 
