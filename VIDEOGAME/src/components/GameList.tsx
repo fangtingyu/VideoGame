@@ -1,5 +1,4 @@
 import React from 'react'
-import { IconConp } from 'react-icons';
 import { Card, CardHeader, CardBody, CardFooter, Stack, Heading, Divider, ButtonGroup, Button } from '@chakra-ui/react'
 interface Game {
     imageURL: string;
