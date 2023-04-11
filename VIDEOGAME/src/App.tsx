@@ -17,7 +17,6 @@ function App() {
     }}>
       <GridItem area='nav'>
         <GameSearchBar />
-        <ThemeChange />
       </GridItem>
       <Show above="lg">
         <GridItem area='aside' bg='gold' >
