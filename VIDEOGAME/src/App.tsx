@@ -5,32 +5,31 @@ import GenresFilter from './components/GenresFilter'
 import ThemeChange from './components/ThemeChange'
 import GameSearchBar from './components/GameSearchBar'
 import "bootstrap/dist/css/bootstrap.css"
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Grid, GridItem, Show } from '@chakra-ui/react'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Grid templateAreas={` "nav nav" "aside main"`}
-      gridTemplateRows={'50px 1fr 30px'}
-      gridTemplateColumns={'150px 1fr'}
-      h='200px'
-      gap='1'
-      color='blackAlpha.700'
-      fontWeight='bold'>
-      <GridItem bg='coral' area='nav' >
-        Nav
+    <Grid templateAreas={{
+      base: ` "nav" "main" `,
+      lg: ` "nav nav" "aside main" ` // large devices are devices that larger than 1240px
+    }}>
+      <GridItem area='nav'>
+        <GameSearchBar />
+        <ThemeChange />
       </GridItem>
-      <GridItem bg='gold' area='aside' >
-        aside
+      <Show above="lg">
+        <GridItem area='aside' bg='gold' >
+          Aside
+        </GridItem>
+      </Show>
+      <GridItem area='main' bg='dodgerblue' >
+        Main
       </GridItem>
-      <GridItem bg='dodgerblue' area='main' >
-        Nav
-      </GridItem>
-
     </Grid>
     // <div className="App">
-    //   <GameSearchBar /> <ThemeChange />
+    //   <GameSearchBar /> 
     //   <GameList />
     //   <GameFilter />
     //   <GenresFilter onSelectGenre={(genre) => console.log(genre)} />
