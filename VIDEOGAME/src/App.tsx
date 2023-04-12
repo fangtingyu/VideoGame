@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import GameFilter from './components/GameFilter'
-import GameList from './components/GameList'
+import GameGrid from './components/GameGrid'
 import GenresFilter from './components/GenresFilter'
 import ThemeChange from './components/ThemeChange'
 import GameSearchBar from './components/GameSearchBar'
@@ -23,8 +23,8 @@ function App() {
           Aside
         </GridItem>
       </Show>
-      <GridItem area='main' bg='dodgerblue' >
-        Main
+      <GridItem area='main' >
+        <GameGrid />
       </GridItem>
     </Grid>
     // <div className="App">
