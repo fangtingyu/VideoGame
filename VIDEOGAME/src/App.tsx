@@ -3,6 +3,7 @@ import GameGrid from './components/GameGrid'
 import GameSearchBar from './components/GameSearchBar'
 import "bootstrap/dist/css/bootstrap.css"
 import { Grid, GridItem, Show } from '@chakra-ui/react'
+import GenreList from './components/GenreList'
 
 const App = () => {
     const [count, setCount] = useState(0)
@@ -16,8 +17,8 @@ const App = () => {
                 <GameSearchBar />
             </GridItem>
             <Show above="lg">
-                <GridItem area='aside' bg='gold' >
-                    Aside
+                <GridItem area='aside' >
+                    <GenreList />
                 </GridItem>
             </Show>
             <GridItem area='main' >
