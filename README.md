@@ -12,3 +12,4 @@ MUI `npm install @mui/icons-material`
 Styled Component `npm i @types/styled-components`
 axios Library for backend `npm i axios@1.3.4`
 `npm install react`
+`npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion`
