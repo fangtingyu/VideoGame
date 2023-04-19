@@ -5,7 +5,8 @@ import getCurrentWeek from '../services/CurrentWeek';
 interface Props {
     startDate: Date;
 }
-
+// https://developers.google.com/calendar/api/v3/reference/calendars/get?apix_params=%7B%22calendarId%22%3A%22primary%22%7D
+//  The calendar API 
 const WeekDisplay = ({ startDate }: Props) => {
     const currentWeek = getCurrentWeek(startDate);
     const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

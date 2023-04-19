@@ -10,11 +10,11 @@ export interface Genre {
 
 interface FetchResponse<T> {
     count: number;
-    results: Genre[];
+    results: T[];
 }
 
 const useData = <T>(endpoint: string) => {
-    const [data, setData] = useState<Genre[]>([]);
+    const [data, setData] = useState<T[]>([]);
     const [error, setError] = useState('');
     const [isLoading, setLoading] = useState(false)
 
@@ -22,7 +22,7 @@ const useData = <T>(endpoint: string) => {
         const controller = new AbortController();
         setLoading(true);
         apiClient
-            .get<FetchResponse<T>>('/games', { signal: controller.signal })
+            .get<FetchResponse<T>>(endpoint, { signal: controller.signal })
             .then(res => {
                 setData(res.data.results)
                 setLoading(false);
@@ -35,7 +35,7 @@ const useData = <T>(endpoint: string) => {
         return () => controller.abort();
     }, [])
 
-    return { genres: data, error, isLoading }
+    return { data, error, isLoading }
 
 };
 
