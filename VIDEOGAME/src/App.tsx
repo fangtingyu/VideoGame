@@ -12,12 +12,17 @@ const App = () => {
         <Grid templateAreas={{
             base: ` "nav" "main" `,
             lg: ` "nav nav" "aside main" ` // large devices are devices that larger than 1240px
-        }}>
+        }}
+            templateColumns={{
+                base: '1fr',
+                lg: '200px 1fr'
+            }}
+        >
             <GridItem area='nav'>
                 <GameSearchBar />
             </GridItem>
             <Show above="lg">
-                <GridItem area='aside' >
+                <GridItem area='aside' paddingX='5px'>
                     <GenreList />
                 </GridItem>
             </Show>
