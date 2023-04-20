@@ -4,9 +4,10 @@ import GameSearchBar from './components/GameSearchBar'
 import "bootstrap/dist/css/bootstrap.css"
 import { Grid, GridItem, Show } from '@chakra-ui/react'
 import GenreList from './components/GenreList'
+import { Genre } from './hooks/useData'
 
 const App = () => {
-    const [count, setCount] = useState(0)
+    const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
 
     return (
         <Grid templateAreas={{
@@ -23,11 +24,11 @@ const App = () => {
             </GridItem>
             <Show above="lg">
                 <GridItem area='aside' paddingX='5px'>
-                    <GenreList />
+                    <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
                 </GridItem>
             </Show>
             <GridItem area='main' >
-                <GameGrid />
+                <GameGrid selectedGenre={selectedGenre} />
             </GridItem>
         </Grid>
     )
