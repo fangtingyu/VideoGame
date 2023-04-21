@@ -2,18 +2,18 @@ import { useState } from 'react'
 import GameGrid from './components/GameGrid'
 import GameSearchBar from './components/GameSearchBar'
 import "bootstrap/dist/css/bootstrap.css"
-import { Grid, GridItem, Show } from '@chakra-ui/react'
+import { Grid, GridItem, HStack, Show } from '@chakra-ui/react'
 import GenreList from './components/GenreList'
 import { Genre } from './hooks/useData'
 import PlatformSelector from './components/PlatformSelector'
 import { Platform } from './hooks/useGames'
+import SortSelector from './components/SortSelector'
 
 //  This interface aims to combine the two filter together as a GameQuery instead of two selector, they still work at the same way but as one object
 export interface GameQuery {
     genre: Genre | null;
     platform: Platform | null;
 }
-
 
 const App = () => {
     const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
@@ -37,7 +37,10 @@ const App = () => {
                 </GridItem>
             </Show>
             <GridItem area='main' >
-                <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
+                <HStack spacing={5} paddingLeft={2} marginBottom={5}>
+                    <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
+                    <SortSelector />
+                </HStack>
                 <GameGrid gameQuery={gameQuery} />
             </GridItem>
         </Grid>
