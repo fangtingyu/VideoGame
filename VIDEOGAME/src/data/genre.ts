@@ -1,0 +1,1 @@
+// This file aims to create the static file for the genre to save the performance

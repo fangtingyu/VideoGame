@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.css"
 import { Grid, GridItem, Show } from '@chakra-ui/react'
 import GenreList from './components/GenreList'
 import { Genre } from './hooks/useData'
+import PlatForm from './components/static/Platform'
+import PlatformSelector from './components/PlatformSelector'
 
 const App = () => {
     const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
@@ -28,6 +30,7 @@ const App = () => {
                 </GridItem>
             </Show>
             <GridItem area='main' >
+                <PlatformSelector />
                 <GameGrid selectedGenre={selectedGenre} />
             </GridItem>
         </Grid>
