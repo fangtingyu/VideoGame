@@ -10,6 +10,7 @@ import { Platform } from './hooks/useGames'
 import SortSelector from './components/SortSelector'
 import SearchInput from './components/SearchInput'
 import ThemeChange from './components/ThemeChange'
+import GameHeading from './components/GameHeading'
 
 //  This interface aims to combine the two filter together as a GameQuery instead of two selector, they still work at the same way but as one object
 export interface GameQuery {
@@ -45,6 +46,7 @@ const App = () => {
                 </GridItem>
             </Show>
             <GridItem area='main' >
+                <GameHeading gameQuery={gameQuery} />
                 <Flex spacing={5} paddingLeft={2} marginBottom={5}>
                     <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
                     <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
