@@ -15,7 +15,8 @@ import ThemeChange from './components/ThemeChange'
 export interface GameQuery {
     genre: Genre | null;
     platform: Platform | null;
-    sortOrder: string
+    sortOrder: string;
+    searchText: string;
 }
 
 const App = () => {
@@ -33,7 +34,7 @@ const App = () => {
             <GridItem area='nav'>
                 <HStack padding='10px'>
                     <GameSearchBar />
-                    <SearchInput />
+                    <SearchInput onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} />
                     <ThemeChange />
                 </HStack>
             </GridItem>
