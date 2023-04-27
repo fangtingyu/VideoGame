@@ -10,7 +10,6 @@ const GameSearchBar = () => {
             {/* Bootstrap code for search bar outline */}
             <Image src={logo} boxSize="60px" />
             {/* <IconButton aria-label='Search database' icon={<SearchIcon />} /> */}
-            <ThemeChange />
         </HStack>
     )
 }
