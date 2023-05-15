@@ -12,9 +12,9 @@ const queryClient = new QueryClient({
       retry: 3,
       cacheTime: 300_000, //5 minutes
       staleTime: 10 * 1000,  // 10 seconds        // if 0 : the moment we get the data, it will be treated as old
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: false,
-      refetchOnMount: false
+      // refetchOnWindowFocus: false,
+      // refetchOnReconnect: false,
+      // refetchOnMount: false
     }
   }
 })
