@@ -20,3 +20,5 @@ Auto-refresh:
 1. When the network is reconnected
 2. When a component is mounted
 3. When the window is refocused
+
+- Parameterized Queries
