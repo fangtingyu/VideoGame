@@ -18,9 +18,14 @@ const TodoForm = () => {
       // })
 
       // APPROACH 2: Updating the data in the cache
-      queryClient.setQueriesData<Todo[]>(['todos'], todos => [savedTodo, ...(todos || [])])
+      queryClient.setQueriesData<Todo[]>(['todos'], todos => [
+        savedTodo,
+        ...(todos || [])
+      ]);
+      if (ref.current) ref.current.value = '';
     }
   })
+
   const ref = useRef<HTMLInputElement>(null);
 
   return (
@@ -44,7 +49,11 @@ const TodoForm = () => {
           <input ref={ref} type="text" className="form-control" />
         </div>
         <div className="col">
-          <button className="btn btn-primary">Add</button>
+          <button
+            disabled={addTodo.isLoading}
+            className="btn btn-primary">
+            {addTodo.isLoading ? 'Adding' : 'Add '}
+          </button>
         </div>
       </form>
     </>
