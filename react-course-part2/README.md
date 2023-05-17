@@ -22,3 +22,5 @@ Auto-refresh:
 3. When the window is refocused
 
 - Parameterized Queries
+- Paginated Queries
+
