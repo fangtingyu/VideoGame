@@ -30,3 +30,13 @@ Now if the request is successful, we replace the new Todos with the saved todo w
 In programming, function overloading refers to the ability to define multiple functions with the same name but different parameter types or a different number of parameters. Each of these functions is called an overload.
 
 When a function is overloaded, it means that there are multiple versions of that function available, and the appropriate version is chosen based on the arguments passed during a function call. The compiler or runtime determines which overload to invoke by matching the arguments' types and number with the available overloaded function definitions.
+
+### Creating a Reusable HTTP Service
+
+A reusable HTTP service, in the context of web development, refers to a module or component that encapsulates functionality related to making HTTP requests to a server and provides an interface for other parts of the application to interact with the server.
+
+The goal of a reusable HTTP service is to provide a centralized and consistent way of communicating with an HTTP server, abstracting away the details of the underlying HTTP client library (such as Axios, Fetch, or XMLHttpRequest) and providing a simplified and reusable API.
+
+1. Create todoService
+2. Encapsulate the Todo interface and the API client 
+3. Apply this todoServices to our hooks
