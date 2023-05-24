@@ -1,20 +1,16 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
 import { CACHE_KEY_TODOS } from '../constants';
 import { Todo } from './useTodos';
+import APIClient from "../services/apiClient";
 
+const apiClient = new APIClient<Todo>('/todos');
 interface AddTodoContext {
     previousTodos: Todo[]
 }
-
-
 const useAddTodo = (onAdd: () => void) => {
     const queryClient = useQueryClient();
     return useMutation<Todo, Error, Todo, AddTodoContext>({
-        mutationFn: (todo: Todo) =>
-            axios
-                .post<Todo>('https://jsonplaceholder.typicode.com/todos', todo)
-                .then(res => res.data),
+        mutationFn: apiClient.post,
         // This function is called before our mutation is executed.
         onMutate: (newTodo: Todo) => {
             //getQueryData is a synchronous function that can be used to get the cached data of multiple queries.
@@ -27,7 +23,7 @@ const useAddTodo = (onAdd: () => void) => {
             onAdd();
             return { previousTodos };
         },
-        onSuccess: (savedTodo, newTodo) => {
+        onSuccess: (savedTodo: Todo, newTodo: Todo) => {
             queryClient.setQueryData<Todo[]>(CACHE_KEY_TODOS, (todos) =>
                 todos?.map((todo) =>
                     todo === newTodo ? savedTodo : todo
@@ -35,7 +31,7 @@ const useAddTodo = (onAdd: () => void) => {
             );
         },
 
-        onError: (error, newTodo, context) => {
+        onError: (error: Error, newTodo: Todo, context: AddTodoContext) => {
             if (!context) return;
             queryClient.setQueryData<Todo[]>(CACHE_KEY_TODOS, context.previousTodos)
         }
