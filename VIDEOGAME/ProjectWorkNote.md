@@ -22,6 +22,28 @@ In the previous version, the genre was saved as constant, after learning react q
     
 ### Fetching Platforms
 
+1. Similar procedure to the fetching genres.
+
+    However still getting the following error:
+
+        No overload matches this call.
+        The last overload gave the following error.
+        Argument of type '{ queryKey: string[]; queryFn: () => Promise<FetchResponse<Platform>>; staleTime: number; initialData: { count: 8; results: readonly ["PC", "PlayStation", "Xbox", ... 4 more ..., "Sony"]; }; }' is not assignable to parameter of type 'QueryKey'.
+        Object literal may only specify known properties, and 'queryKey' does not exist in type 'readonly unknown[]'.
+
+2. The reason for the above issue: <br>
+
+    `["PC", "PlayStation", "Xbox", ... 4 more ..., "Sony"] `
+    
+    does not match with the FetchResponse<Platform> format:
+    ```
+    interface Platform {
+        id: number;
+        name: string;
+        slug: string;
+    }
+    ```
+    Solution: changed the data/platforms format. 
 ### Fetching Games
 
 ### Removing Duplicate Interfaces
