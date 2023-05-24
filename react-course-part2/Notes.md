@@ -40,3 +40,14 @@ The goal of a reusable HTTP service is to provide a centralized and consistent w
 1. Create todoService
 2. Encapsulate the Todo interface and the API client 
 3. Apply this todoServices to our hooks
+
+### Understanding the Application Layers
+
+1. <b> Components </b>
+TodoForm, todoList
+2. <b> Custom Hooks </b>
+useTodos, useAddTodo
+3. <b> HTTP Services </b>
+tosoService
+4. <b> API Client </b>
+APIClient
