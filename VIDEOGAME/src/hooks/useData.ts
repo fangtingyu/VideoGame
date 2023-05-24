@@ -8,7 +8,7 @@ export interface Genre {
     name: string;
 }
 
-interface FetchResponse<T> {
+export interface FetchResponse<T> {
     count: number;
     results: T[];
 }
