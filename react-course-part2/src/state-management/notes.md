@@ -33,3 +33,37 @@ Steps to create the counter reducer:
  5. following the same procedure
  6. When dispatching, specify the input parameters
 
+<br>
+
+# Sharing State
+
+Lift the state up to the closet parent and pass it down as props to child components
+Issue: `prop drilling`
+
+Solution: `React Context`
+
+React Context allows sharing data without passing it down through many components in the middle.
+
+<br>
+
+## Sharing State Using React Context
+
+To share state using React context, there are three things we need to do:
+1. We need to lift the state up to the closet parent
+    In the example, we lift the task state to the App component
+2. Second, we should create a context
+    keywords: `ContextType`, `Dispatch<ActionType>`, `React.createContext<ContextType>`
+
+    Context is like a truck that transporting data, therefore, we need to identify the shape of the data, i.e. `interface ContextTYpe`
+    
+    ```
+    <!-- From the useReducer Hook-->
+    interface ContextType{
+        state:
+        dispatch: Dispatch <ActionType>
+    }
+
+    const Context = React.createContext<ContextType>({} as ContextType )
+    ```
+
+3. Once we have the Context, we wrap our component tree using a provider component `<Context.Provider value ={}>`
