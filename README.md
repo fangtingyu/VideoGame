@@ -27,3 +27,8 @@ To install react query
 
 #### QueryClient 
 QueryClient is the core object we use for managing and caching remote data in React Query
+
+- getQueuryData is a synchronous function that can be used to get the cached data of multiple queries.
+- setQueryData is a synchronous function that can be used to immediately update a query's cached data. If the query does not exist, it will be created. If the query is not utilized by a query hook in the default cacheTime of 5 minutes, the query will be garbage collected. 
+-  To <b>update multiple queries at once and match query keys </b> partially, you need to use queryClient.setQueriesData instead.
+
