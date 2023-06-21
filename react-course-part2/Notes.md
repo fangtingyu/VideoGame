@@ -48,6 +48,7 @@ TodoForm, todoList
 2. <b> Custom Hooks </b>
 useTodos, useAddTodo
 3. <b> HTTP Services </b>
-tosoService
+todoService
 4. <b> API Client </b>
 APIClient
+
