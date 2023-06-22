@@ -4,6 +4,9 @@ This project is about building a video game discovery app after watching Mosh's 
 
 ## React dependencies (that may not be downloaded yet)
 
+`npm install`
+
+
 REACT
 react icons: `npm install react-icons --save`
 bootstrap: `npm i bootstrap@5.3.0-alpha2`

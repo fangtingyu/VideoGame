@@ -67,3 +67,102 @@ To share state using React context, there are three things we need to do:
     ```
 
 3. Once we have the Context, we wrap our component tree using a provider component `<Context.Provider value ={}>`
+
+## Create a Custom Provider
+
+1. Create a provider component
+2. Move reducer and context into that provider component
+3. Import ReactNode as a children and pass the children as a Props to the function
+4. Wrap other components within the new-created provider component 
+
+## Create a Hook to access context
+
+With that, we can clear our imports.
+
+there are benefits to accessing context using a hook compared to directly using the React context API. Here are some advantages:
+
+- Simpler syntax: Accessing context using a hook provides a simpler and more concise syntax compared to using the context API directly. Hooks allow you to write more compact code and make the context usage more readable within functional components.
+
+- Easier consumption: Using a hook to access context abstracts away the details of the context implementation, making it easier for component developers to consume the context. With a hook, you can simply call the hook function and retrieve the context value without worrying about the context provider or the useContext hook.
+
+- Encapsulation and reusability: By creating a custom hook to access context, you can encapsulate the logic for consuming the context within the hook itself. This promotes reusability as you can use the same hook in multiple components, making it easier to share context-related functionality across your application.
+
+- Testing flexibility: Hooks, including the custom hook for accessing context, can be easily tested in isolation. You can mock the context values and behaviors within your tests, allowing you to focus on testing the component that consumes the context without worrying about the context implementation details.
+
+- Abstraction from implementation changes: Using a hook to access context provides an abstraction layer between the components and the context implementation. This means that if the implementation of the context changes in the future (e.g., switching from React context to a different state management library), you can update the custom hook to accommodate the changes without modifying all the components that consume the context.
+
+# React Context
+
+A context should only hold values that are closely related and tend to change together
+- -> A single context should have one single purpose
+
+## Minimizing renders
+Split up a context into smaller and focused ones, each having a single responsibility.
+
+## When to use Context
+
+### Server State - React Query
+- In the real case, we should not use context for the tasks because it is most likely to interact with the backend database
+
+You should avoid using context for the server state. Because you will end up with too many context each holding a certain type of objects.
+
+Server state refers to the data or state that is stored and managed on the server-side of an application. It typically resides on the backend or server infrastructure and is responsible for serving data to the client or handling business logic.
+
+Examples of server state include:
+
+- User data: Information about registered users, their profiles, authentication tokens, and authorization roles are typically stored on the server. This data is fetched from the server and used to authenticate and authorize users on the client-side.
+
+- Database records: Data stored in a database, such as posts, comments, product listings, or any other persistent data, is considered part of the server state. Clients request this data from the server to display or manipulate it.
+
+- Server-side session state: In web applications, session state refers to data that is stored on the server and associated with a particular user session. This can include information like shopping cart contents, temporary user preferences, or other session-specific data.
+
+
+### Client State
+
+Client state refers to the data or state that is managed on the client-side of an application. It resides within the client's browser or device and is responsible for handling UI interactions, user preferences, and temporary data.
+
+Examples of client state include:
+
+- Form inputs: When a user fills out a form on a webpage, the entered data is stored as client state until it is submitted to the server. This allows for real-time validation, local error handling, and a better user experience.
+
+- UI state: The state of UI components, such as expanded/collapsed sections, selected tabs, or active filters, is typically managed as client state. These states affect the visual presentation and behavior of the application without directly involving server interactions.
+
+- Local caching: Clients can store frequently accessed data locally to improve performance and reduce server requests. This can include caching API responses, storing preferences, or saving temporary data during a session.
+
+# Context vs Redux
+### By using Redux, you can:
+
+- Cache the server state
+- Persist it in local storage
+- Components can select pieces of state
+- Undo things
+- Use middleware and log actions
+- Decouple from React
+- See state changes over time
+
+# Managing Application State with Zustand
+### install Zustand 
+`npm i zustand@4.3.7`
+
+## Create a store for counter
+1. create a store.ts in counter folder
+2. create an interface to define the shape of the store
+    - including the initial state {counter}
+    - dispatch methods {increment} & {reset}
+3. using `create<interface>` to create a useHook.
+4. The use hook is actually the set() function.
+6. delete the Reducer since all the logic has been copied into the store
+7. implement the store to other components to replace the reducer.
+
+## Preventing unnecessary renders with selector
+
+From ` const { counter } = useCounterStore()` to `const counter = useCounterStore(s => s.counter)` 
+The counter is the property that defined in the store shape interface.
+
+## Inspecting Stores with Zustand DevTools
+
+### install the devtools
+`npm i simple-zustand-devtools@1.1.0`
+
+## Test if we are in the product environment
+`npm i -D @types/node`
