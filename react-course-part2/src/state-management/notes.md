@@ -163,3 +163,6 @@ The counter is the property that defined in the store shape interface.
 
 ### install the devtools
 `npm i simple-zustand-devtools@1.1.0`
+
+## Test if we are in the product environment
+`npm i -D @types/node`
