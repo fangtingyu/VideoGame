@@ -74,3 +74,19 @@ To share state using React context, there are three things we need to do:
 2. Move reducer and context into that provider component
 3. Import ReactNode as a children and pass the children as a Props to the function
 4. Wrap other components within the new-created provider component 
+
+## Create a Hook to access context
+
+With that, we can clear our imports.
+
+there are benefits to accessing context using a hook compared to directly using the React context API. Here are some advantages:
+
+- Simpler syntax: Accessing context using a hook provides a simpler and more concise syntax compared to using the context API directly. Hooks allow you to write more compact code and make the context usage more readable within functional components.
+
+- Easier consumption: Using a hook to access context abstracts away the details of the context implementation, making it easier for component developers to consume the context. With a hook, you can simply call the hook function and retrieve the context value without worrying about the context provider or the useContext hook.
+
+- Encapsulation and reusability: By creating a custom hook to access context, you can encapsulate the logic for consuming the context within the hook itself. This promotes reusability as you can use the same hook in multiple components, making it easier to share context-related functionality across your application.
+
+- Testing flexibility: Hooks, including the custom hook for accessing context, can be easily tested in isolation. You can mock the context values and behaviors within your tests, allowing you to focus on testing the component that consumes the context without worrying about the context implementation details.
+
+- Abstraction from implementation changes: Using a hook to access context provides an abstraction layer between the components and the context implementation. This means that if the implementation of the context changes in the future (e.g., switching from React context to a different state management library), you can update the custom hook to accommodate the changes without modifying all the components that consume the context.
