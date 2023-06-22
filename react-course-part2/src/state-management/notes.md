@@ -154,4 +154,7 @@ Examples of client state include:
 6. delete the Reducer since all the logic has been copied into the store
 7. implement the store to other components to replace the reducer.
 
+## Preventing unnecessary renders with selector
 
+From ` const { counter } = useCounterStore()` to `const counter = useCounterStore(s => s.counter)` 
+The counter is the property that defined in the store shape interface.
