@@ -158,3 +158,8 @@ Examples of client state include:
 
 From ` const { counter } = useCounterStore()` to `const counter = useCounterStore(s => s.counter)` 
 The counter is the property that defined in the store shape interface.
+
+## Inspecting Stores with Zustand DevTools
+
+### install the devtools
+`npm i simple-zustand-devtools@1.1.0`
