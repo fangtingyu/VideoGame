@@ -90,3 +90,41 @@ there are benefits to accessing context using a hook compared to directly using 
 - Testing flexibility: Hooks, including the custom hook for accessing context, can be easily tested in isolation. You can mock the context values and behaviors within your tests, allowing you to focus on testing the component that consumes the context without worrying about the context implementation details.
 
 - Abstraction from implementation changes: Using a hook to access context provides an abstraction layer between the components and the context implementation. This means that if the implementation of the context changes in the future (e.g., switching from React context to a different state management library), you can update the custom hook to accommodate the changes without modifying all the components that consume the context.
+
+# React Context
+
+A context should only hold values that are closely related and tend to change together
+- -> A single context should have one single purpose
+
+## Minimizing renders
+Split up a context into smaller and focused ones, each having a single responsibility.
+
+## When to use Context
+
+### Server State - React Query
+- In the real case, we should not use context for the tasks because it is most likely to interact with the backend database
+
+You should avoid using context for the server state. Because you will end up with too many context each holding a certain type of objects.
+
+Server state refers to the data or state that is stored and managed on the server-side of an application. It typically resides on the backend or server infrastructure and is responsible for serving data to the client or handling business logic.
+
+Examples of server state include:
+
+- User data: Information about registered users, their profiles, authentication tokens, and authorization roles are typically stored on the server. This data is fetched from the server and used to authenticate and authorize users on the client-side.
+
+- Database records: Data stored in a database, such as posts, comments, product listings, or any other persistent data, is considered part of the server state. Clients request this data from the server to display or manipulate it.
+
+- Server-side session state: In web applications, session state refers to data that is stored on the server and associated with a particular user session. This can include information like shopping cart contents, temporary user preferences, or other session-specific data.
+
+
+### Client State
+
+Client state refers to the data or state that is managed on the client-side of an application. It resides within the client's browser or device and is responsible for handling UI interactions, user preferences, and temporary data.
+
+Examples of client state include:
+
+- Form inputs: When a user fills out a form on a webpage, the entered data is stored as client state until it is submitted to the server. This allows for real-time validation, local error handling, and a better user experience.
+
+- UI state: The state of UI components, such as expanded/collapsed sections, selected tabs, or active filters, is typically managed as client state. These states affect the visual presentation and behavior of the application without directly involving server interactions.
+
+- Local caching: Clients can store frequently accessed data locally to improve performance and reduce server requests. This can include caching API responses, storing preferences, or saving temporary data during a session.
