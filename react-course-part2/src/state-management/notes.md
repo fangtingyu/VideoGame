@@ -67,3 +67,10 @@ To share state using React context, there are three things we need to do:
     ```
 
 3. Once we have the Context, we wrap our component tree using a provider component `<Context.Provider value ={}>`
+
+## Create a Custom Provider
+
+1. Create a provider component
+2. Move reducer and context into that provider component
+3. Import ReactNode as a children and pass the children as a Props to the function
+4. Wrap other components within the new-created provider component 
