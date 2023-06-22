@@ -139,3 +139,19 @@ Examples of client state include:
 - Use middleware and log actions
 - Decouple from React
 - See state changes over time
+
+# Managing Application State with Zustand
+### install Zustand 
+`npm i zustand@4.3.7`
+
+## Create a store for counter
+1. create a store.ts in counter folder
+2. create an interface to define the shape of the store
+    - including the initial state {counter}
+    - dispatch methods {increment} & {reset}
+3. using `create<interface>` to create a useHook.
+4. The use hook is actually the set() function.
+6. delete the Reducer since all the logic has been copied into the store
+7. implement the store to other components to replace the reducer.
+
+
