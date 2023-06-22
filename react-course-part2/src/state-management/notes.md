@@ -128,3 +128,14 @@ Examples of client state include:
 - UI state: The state of UI components, such as expanded/collapsed sections, selected tabs, or active filters, is typically managed as client state. These states affect the visual presentation and behavior of the application without directly involving server interactions.
 
 - Local caching: Clients can store frequently accessed data locally to improve performance and reduce server requests. This can include caching API responses, storing preferences, or saving temporary data during a session.
+
+# Context vs Redux
+### By using Redux, you can:
+
+- Cache the server state
+- Persist it in local storage
+- Components can select pieces of state
+- Undo things
+- Use middleware and log actions
+- Decouple from React
+- See state changes over time
