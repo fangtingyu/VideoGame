@@ -15,3 +15,6 @@ Steps:
     { path: '/users', element: <UserListPage /> }])
 5. Go to main.tsx
 6. Replace `<APP />` with `<RouterProvider router={router} />`
+
+# Navigation
+
