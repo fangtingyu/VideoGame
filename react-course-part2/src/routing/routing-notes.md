@@ -17,4 +17,10 @@ Steps:
 6. Replace `<APP />` with `<RouterProvider router={router} />`
 
 # Navigation
+       {/* No requests send to the server because the content of user list has already shipped to the client*/}
+      <Link to="/users"> Users </Link>
+      <a href="/users">Users</a>
 
+- No requests send to the server because the content of user list has already shipped to the client
+- `const navigate = useNavigate()` can be used to prevent default reload
+- Redirect the user to the home page
